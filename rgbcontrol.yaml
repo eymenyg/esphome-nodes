@@ -42,7 +42,7 @@ output:
 
 light:
   - platform: rgb
-    name: "Room RGB Lights"
+    name: "RGB Lights"
     red: red_output
     green: green_output
     blue: blue_output
