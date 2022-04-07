@@ -34,4 +34,6 @@ binary_sensor:
         input: true
         pullup: true
       inverted: true
+    filters:
+    - delayed_off: 10ms
     name: "Light Switch"
