@@ -33,6 +33,31 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: true
     name: "Light Switch"
-    filters:
-      - delayed_on_off: 150ms
+    on_multi_click:
+      - timing:
+          - ON for at most 0.2s
+          - OFF for at least 0.2s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_press
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_press
+      - timing:
+          - ON for at least 0.5s
+          - OFF for at least 0.2s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_hold
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_hold
 
