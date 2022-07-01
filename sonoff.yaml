@@ -18,14 +18,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Sonoff Fallback Hotspot"
-    password: "bCSeuWdkqu7f"
-
-captive_portal:
-    
-
 binary_sensor:
   - platform: gpio
     pin:

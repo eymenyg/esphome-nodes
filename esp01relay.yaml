@@ -18,13 +18,6 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Relayboard Fallback Hotspot"
-    password: "JT1qLwTDZCk9"
-
-captive_portal:
-    
 switch:
   - platform: gpio
     pin: 0
