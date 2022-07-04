@@ -1,5 +1,5 @@
 esphome:
-  name: relayboard
+  name: esp01_relay_v4_1
 
 esp8266:
   board: esp01_1m
