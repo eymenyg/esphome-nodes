@@ -1,5 +1,5 @@
 esphome:
-  name: nodemcuv2_1
+  name: nodemcuv2-1
 
 esp8266:
   board: nodemcuv2

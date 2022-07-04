@@ -1,5 +1,5 @@
 esphome:
-  name: lightswitch_1
+  name: lightswitch-1
 
 esp8266:
   board: esp01_1m
