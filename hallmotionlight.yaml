@@ -22,16 +22,17 @@ wifi:
 
 binary_sensor:
   - platform: gpio
-    pin: GPIO0
+    pin: GPIO2
     name: "PIR Sensor"
     device_class: motion
 
 output:
   - platform: esp8266_pwm
-    pin: GPIO2
+    pin: GPIO0
     id: hallmotionlight_led
 
 light:
   - platform: monochromatic
     name: "Hall LED"
     output: hallmotionlight_led
+    restore_mode: ALWAYS_ON
