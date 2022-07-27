@@ -35,4 +35,4 @@ light:
   - platform: monochromatic
     name: "Hall LED"
     output: hallmotionlight_led
-    restore_mode: ALWAYS_ON
+    restore_mode: RESTORE_DEFAULT_OFF
