@@ -22,6 +22,10 @@ wifi:
 
 output:
   - platform: esp8266_pwm
+    pin: D2
+    frequency: 1000 Hz
+    id: hallmotionlight_led
+  - platform: esp8266_pwm
     pin: D6
     frequency: 1000 Hz
     id: red_output
@@ -34,6 +38,7 @@ output:
     frequency: 1000 Hz
     id: blue_output
 
+
 light:
   - platform: rgb
     name: "RGB Lights"
@@ -45,3 +50,55 @@ light:
       - random:
       - strobe:
       - flicker:
+  - platform: monochromatic
+    name: "Hall LED"
+    output: hallmotionlight_led
+    restore_mode: RESTORE_DEFAULT_OFF
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D1
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Light Switch"
+    on_multi_click:
+      - timing: # Click
+          - ON for at most 0.3s
+          - OFF for at least 0.05s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_click
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_click
+      - timing: # Hold
+          - ON for 0.3s to 1s
+          - OFF for at least 0.1s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_hold
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_hold
+      - timing: # Hold Long
+          - ON for at least 1.2s
+          - OFF for at least 0.1s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_holdlong
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_holdlong
