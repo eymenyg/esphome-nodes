@@ -61,7 +61,7 @@ binary_sensor:
     name: "Light Switch"
     on_multi_click:
       - timing: # Click
-          - ON for at most 0.3s
+          - ON for 0.1s to 0.3s
           - OFF for at least 0.05s
         then:
          - homeassistant.service:
