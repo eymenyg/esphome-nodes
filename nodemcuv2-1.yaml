@@ -23,19 +23,16 @@ wifi:
 output:
   - platform: esp8266_pwm
     pin: D2
-    frequency: 1000 Hz
     id: hallmotionlight_led
+    frequency: 200 Hz
   - platform: esp8266_pwm
     pin: D6
-    frequency: 1000 Hz
     id: red_output
   - platform: esp8266_pwm
     pin: D7
-    frequency: 1000 Hz
     id: green_output
   - platform: esp8266_pwm
     pin: D5
-    frequency: 1000 Hz
     id: blue_output
 
 
