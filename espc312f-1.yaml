@@ -31,7 +31,6 @@ wifi:
   password: !secret wifi_password
 
 output:
-  
   - platform: ledc
     pin: GPIO3
     id: red_output
