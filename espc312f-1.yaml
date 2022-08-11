@@ -30,3 +30,82 @@ wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
+output:
+  
+  - platform: ledc
+    pin: GPIO3
+    id: red_output
+  - platform: ledc
+    pin: GPIO4
+    id: green_output
+  - platform: ledc
+    pin: GPIO5
+    id: blue_output
+  - platform: ledc
+    pin: GPIO8
+    id: hallmotionlight_led
+
+
+light:
+  - platform: rgb
+    name: "RGB Lights"
+    red: red_output
+    green: green_output
+    blue: blue_output
+    effects:
+      - pulse:
+      - random:
+      - strobe:
+      - flicker:
+  - platform: monochromatic
+    name: "Hall LED"
+    output: hallmotionlight_led
+    restore_mode: RESTORE_DEFAULT_OFF
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Light Switch"
+    on_multi_click:
+      - timing: # Click
+          - ON for 0.1s to 0.3s
+          - OFF for at least 0.05s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_click
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_click
+      - timing: # Hold
+          - ON for 0.3s to 1s
+          - OFF for at least 0.1s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_hold
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_hold
+      - timing: # Hold Long
+          - ON for at least 1.2s
+          - OFF for at least 0.1s
+        then:
+         - homeassistant.service:
+             service: input_boolean.turn_on
+             data:
+               entity_id: input_boolean.lightswitch_holdlong
+         - delay: 0.2s
+         - homeassistant.service:
+             service: input_boolean.turn_off
+             data:
+               entity_id: input_boolean.lightswitch_holdlong
