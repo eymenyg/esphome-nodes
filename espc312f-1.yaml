@@ -42,7 +42,7 @@ output:
     pin: GPIO5
     id: blue_output
   - platform: ledc
-    pin: GPIO8
+    pin: GPIO9
     id: hallmotionlight_led
 
 
@@ -65,7 +65,7 @@ light:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO9
+      number: GPIO8
       mode: INPUT_PULLUP
       inverted: true
     name: "Light Switch"
