@@ -41,7 +41,7 @@ output:
     pin: GPIO5
     id: blue_output
   - platform: ledc
-    pin: GPIO9
+    pin: GPIO18
     id: hallmotionlight_led
 
 
