@@ -70,6 +70,8 @@ binary_sensor:
       number: GPIO8
       mode: INPUT_PULLUP
       inverted: true
+    filters:
+      - delayed_on_off: 20ms
     name: "Light Switch"
     on_multi_click:
       - timing: # Click
@@ -99,7 +101,7 @@ binary_sensor:
              data:
                entity_id: input_boolean.lightswitch_hold
       - timing: # Hold Long
-          - ON for at least 1.2s
+          - ON for at least 1s
           - OFF for at least 0.1s
         then:
          - homeassistant.service:
