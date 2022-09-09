@@ -113,15 +113,3 @@ binary_sensor:
              service: input_boolean.turn_off
              data:
                entity_id: input_boolean.light_switch_hold_long
-      - timing: # Hold Very Long
-          - ON for at least 4s
-        then:
-         - homeassistant.service:
-             service: input_boolean.turn_on
-             data:
-               entity_id: input_boolean.light_switch_hold_very_long
-         - delay: 0.2s
-         - homeassistant.service:
-             service: input_boolean.turn_off
-             data:
-               entity_id: input_boolean.light_switch_hold_very_long
