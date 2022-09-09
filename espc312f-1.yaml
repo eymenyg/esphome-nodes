@@ -75,7 +75,7 @@ binary_sensor:
     name: "Light Switch"
     on_multi_click:
       - timing: # Click
-          - ON for 0.1s to 0.3s
+          - ON for at most 0.3s
           - OFF for at least 0.05s
         then:
          - homeassistant.service:
@@ -101,8 +101,7 @@ binary_sensor:
              data:
                entity_id: input_boolean.light_switch_hold
       - timing: # Hold Long
-          - ON for 1s to 3s
-          - OFF for at least 0.1s
+          - ON for at least 1s
         then:
          - homeassistant.service:
              service: input_boolean.turn_on
