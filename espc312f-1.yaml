@@ -33,6 +33,10 @@ wifi:
 preferences:
   flash_write_interval: 15min
 
+button:
+  - platform: restart
+    name: "ESP-C3-12F - 1 Restart"
+
 output:
   - platform: ledc
     pin: GPIO3

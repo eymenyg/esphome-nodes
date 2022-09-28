@@ -21,6 +21,10 @@ wifi:
   fast_connect: true
   reboot_timeout: 3min
 
+button:
+  - platform: restart
+    name: "Sonoff S26 R1 - 1 Restart"
+
 binary_sensor:
   - platform: gpio
     pin:
