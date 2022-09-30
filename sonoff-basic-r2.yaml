@@ -1,5 +1,5 @@
 esphome:
-  name: sonoffbasicr2-1
+  name: sonoff-basic-r2
 
 esp8266:
   board: esp8285
@@ -22,7 +22,7 @@ wifi:
 
 button:
   - platform: restart
-    name: "Sonoff Basic R2 - 1 Restart"
+    name: "Sonoff Basic R2 Restart"
 
 binary_sensor:
   - platform: gpio
@@ -32,13 +32,13 @@ binary_sensor:
         input: true
         pullup: true
       inverted: true
-    name: "Sonoff Basic R2 1 Button"
+    name: "Sonoff Basic R2 Button"
     on_press:
       - switch.toggle: relay
 
 switch:
   - platform: gpio
-    name: "Sonoff Basic R2 1 Relay"
+    name: "Sonoff Basic R2 Relay"
     pin: GPIO12
     id: relay
     restore_mode: ALWAYS_ON

@@ -1,5 +1,5 @@
 esphome:
-  name: sonoffs26r1-1
+  name: sonoff-s26-r1
 
 esp8266:
   board: esp01_1m
@@ -23,7 +23,7 @@ wifi:
 
 button:
   - platform: restart
-    name: "Sonoff S26 R1 - 1 Restart"
+    name: "Sonoff S26 R1 Restart"
 
 binary_sensor:
   - platform: gpio
@@ -33,25 +33,25 @@ binary_sensor:
         input: true
         pullup: true
       inverted: true
-    name: "Sonoff S26 R1 1 Button"
+    name: "Sonoff S26 R1 Button"
     on_press:
       - switch.toggle: relay
 
 switch:
   - platform: gpio
-    name: "Sonoff S26 R1 1 Relay"
+    name: "Sonoff S26 R1 Relay"
     pin: GPIO12
     id: relay
     restore_mode: ALWAYS_ON
 
 output:
   - platform: esp8266_pwm
-    id: sonoffs26r1_1_green_led
+    id: green_led
     pin:
       number: GPIO13
       inverted: true
 
 light:
   - platform: monochromatic
-    name: "Sonoff S26 R1 1 Green LED"
-    output: sonoffs26r1_1_green_led
+    name: "Sonoff S26 R1 Green LED"
+    output: green_led

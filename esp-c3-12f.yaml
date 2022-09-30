@@ -1,5 +1,5 @@
 esphome:
-  name: espc312f-1
+  name: esp-c3-12f
   platformio_options:
     board_build.flash_mode: dio
 
@@ -37,7 +37,7 @@ preferences:
 
 button:
   - platform: restart
-    name: "ESP-C3-12F - 1 Restart"
+    name: "ESP-C3-12F Restart"
 
 output:
   - platform: ledc
@@ -51,7 +51,7 @@ output:
     id: blue_output
   - platform: ledc
     pin: GPIO18
-    id: hallmotionlight_led
+    id: hall_night_light
 
 
 light:
@@ -66,8 +66,8 @@ light:
       - strobe:
       - flicker:
   - platform: monochromatic
-    name: "Hall LED"
-    output: hallmotionlight_led
+    name: "Hall Night Light"
+    output: hall_night_light
     restore_mode: RESTORE_DEFAULT_OFF
 
 binary_sensor:
