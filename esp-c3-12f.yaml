@@ -89,12 +89,7 @@ binary_sensor:
           - OFF for at least 0.05s
         then:
          - homeassistant.service:
-             service: input_boolean.turn_on
-             data:
-               entity_id: input_boolean.light_switch_click
-         - delay: 0.2s
-         - homeassistant.service:
-             service: input_boolean.turn_off
+             service: input_boolean.toggle
              data:
                entity_id: input_boolean.light_switch_click
       - timing: # Hold
@@ -102,23 +97,13 @@ binary_sensor:
           - OFF for at least 0.1s
         then:
          - homeassistant.service:
-             service: input_boolean.turn_on
-             data:
-               entity_id: input_boolean.light_switch_hold
-         - delay: 0.2s
-         - homeassistant.service:
-             service: input_boolean.turn_off
+             service: input_boolean.toggle
              data:
                entity_id: input_boolean.light_switch_hold
       - timing: # Hold Long
           - ON for at least 0.7s
         then:
          - homeassistant.service:
-             service: input_boolean.turn_on
-             data:
-               entity_id: input_boolean.light_switch_hold_long
-         - delay: 0.2s
-         - homeassistant.service:
-             service: input_boolean.turn_off
+             service: input_boolean.toggle
              data:
                entity_id: input_boolean.light_switch_hold_long
