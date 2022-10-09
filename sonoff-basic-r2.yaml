@@ -44,7 +44,7 @@ switch:
     name: "Sonoff Basic R2 Relay"
     pin: GPIO12
     id: relay
-    restore_mode: ALWAYS_ON
+    restore_mode: RESTORE_DEFAULT_ON
 
 status_led:
   pin:
