@@ -65,3 +65,11 @@ light:
       - random:
       - strobe:
       - flicker:
+
+#external_components:
+#  - source: github://Jorre05/remote_receiver
+#    components: [ remote_receiver ]
+
+#remote_receiver:
+#  pin: GPIO6
+#  dump: pronto
