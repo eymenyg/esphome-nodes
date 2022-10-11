@@ -66,10 +66,133 @@ light:
       - strobe:
       - flicker:
 
-#external_components:
-#  - source: github://Jorre05/remote_receiver
-#    components: [ remote_receiver ]
+external_components:
+  - source: github://Jorre05/remote_receiver
+    components: [ remote_receiver ]
 
-#remote_receiver:
-#  pin: GPIO6
-#  dump: pronto
+remote_receiver:
+  pin:
+    number: GPIO6
+    inverted: true
+
+binary_sensor:
+  - platform: remote_receiver
+    name: "RGB Brightness Up"
+    nec:
+      address: "0xEF00"
+      command: "0xFF00"
+  - platform: remote_receiver
+    name: "RGB Brightness Down"
+    nec:
+      address: "0xEF00"
+      command: "0xFE01"
+  - platform: remote_receiver
+    name: "RGB Turn Off"
+    nec:
+      address: "0xEF00"
+      command: "0xFD02"
+  - platform: remote_receiver
+    name: "RGB Turn On"
+    nec:
+      address: "0xEF00"
+      command: "0xFC03"
+  - platform: remote_receiver
+    name: "RGB Red 1"
+    nec:
+      address: "0xEF00"
+      command: "0xFB04"
+  - platform: remote_receiver
+    name: "RGB Green 1"
+    nec:
+      address: "0xEF00"
+      command: "0xFA05"
+  - platform: remote_receiver
+    name: "RGB Blue 1"
+    nec:
+      address: "0xEF00"
+      command: "0xF906"
+  - platform: remote_receiver
+    name: "RGB White"
+    nec:
+      address: "0xEF00"
+      command: "0xF807"
+  - platform: remote_receiver
+    name: "RGB Red 2"
+    nec:
+      address: "0xEF00"
+      command: "0xF708"
+  - platform: remote_receiver
+    name: "RGB Green 2"
+    nec:
+      address: "0xEF00"
+      command: "0xF609"
+  - platform: remote_receiver
+    name: "RGB Blue 2"
+    nec:
+      address: "0xEF00"
+      command: "0xF50A"
+  - platform: remote_receiver
+    name: "RGB Flash"
+    nec:
+      address: "0xEF00"
+      command: "0xF40B"
+  - platform: remote_receiver
+    name: "RGB Red 3"
+    nec:
+      address: "0xEF00"
+      command: "0xF30C"
+  - platform: remote_receiver
+    name: "RGB Green 3"
+    nec:
+      address: "0xEF00"
+      command: "0xF20D"
+  - platform: remote_receiver
+    name: "RGB Blue 3"
+    nec:
+      address: "0xEF00"
+      command: "0xF10E"
+  - platform: remote_receiver
+    name: "RGB Strobe"
+    nec:
+      address: "0xEF00"
+      command: "0xF00F"
+  - platform: remote_receiver
+    name: "RGB Red 4"
+    nec:
+      address: "0xEF00"
+      command: "0xEF10"
+  - platform: remote_receiver
+    name: "RGB Green 4"
+    nec:
+      address: "0xEF00"
+      command: "0xEE11"
+  - platform: remote_receiver
+    name: "RGB Blue 4"
+    nec:
+      address: "0xEF00"
+      command: "0xED12"
+  - platform: remote_receiver
+    name: "RGB Fade"
+    nec:
+      address: "0xEF00"
+      command: "0xEC13"
+  - platform: remote_receiver
+    name: "RGB Red 5"
+    nec:
+      address: "0xEF00"
+      command: "0xEB14"
+  - platform: remote_receiver
+    name: "RGB Green 5"
+    nec:
+      address: "0xEF00"
+      command: "0xEA15"
+  - platform: remote_receiver
+    name: "RGB Blue 5"
+    nec:
+      address: "0xEF00"
+      command: "0xE916"
+  - platform: remote_receiver
+    name: "RGB Smooth"
+    nec:
+      address: "0xEF00"
+      command: "0xE817"
