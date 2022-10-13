@@ -27,7 +27,7 @@ ota:
   password: !secret api_password
 
 wifi:
-  ssid: !secret wifi_ssid
+  ssid: !secret ext_ssid
   password: !secret wifi_password
   fast_connect: on
   manual_ip:
