@@ -81,7 +81,10 @@ external_components:
 remote_receiver:
   pin:
     number: GPIO6
-    inverted: true
+  tolerance: 50%
+  filter: 250us
+  idle: 4ms
+  buffer_size: 2kb
 
 binary_sensor:
   - platform: gpio
@@ -116,124 +119,68 @@ binary_sensor:
              service: input_boolean.toggle
              data:
                entity_id: input_boolean.light_switch_hold_long
-
   - platform: remote_receiver
-    name: "RGB Brightness Up"
-    nec:
-      address: "0xEF00"
-      command: "0xFF00"
+    name: "RF Power"
+    rc_switch_raw:
+      code: "100110001101111100000001"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Brightness Down"
-    nec:
-      address: "0xEF00"
-      command: "0xFE01"
+    name: "RF Light"
+    rc_switch_raw:
+      code: "100110001101111100000100"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Turn Off"
-    nec:
-      address: "0xEF00"
-      command: "0xFD02"
+    name: "RF Brightness Up"
+    rc_switch_raw:
+      code: "100110001101111100000101"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Turn On"
-    nec:
-      address: "0xEF00"
-      command: "0xFC03"
+    name: "RF Brightness Down"
+    rc_switch_raw:
+      code: "100110001101111100000110"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Red 1"
-    nec:
-      address: "0xEF00"
-      command: "0xFB04"
+    name: "RF Power"
+    rc_switch_raw:
+      code: "100110001101111100000001"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Green 1"
-    nec:
-      address: "0xEF00"
-      command: "0xFA05"
+    name: "RF 100%"
+    rc_switch_raw:
+      code: "100110001101111100000111"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Blue 1"
-    nec:
-      address: "0xEF00"
-      command: "0xF906"
+    name: "RF 50%"
+    rc_switch_raw:
+      code: "100110001101111100001000"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB White"
-    nec:
-      address: "0xEF00"
-      command: "0xF807"
+    name: "RF 25%"
+    rc_switch_raw:
+      code: "100110001101111100001001"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Red 2"
-    nec:
-      address: "0xEF00"
-      command: "0xF708"
+    name: "RF Mode Up"
+    rc_switch_raw:
+      code: "100110001101111100001011"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Green 2"
-    nec:
-      address: "0xEF00"
-      command: "0xF609"
+    name: "RF Mode Down"
+    rc_switch_raw:
+      code: "100110001101111100010001"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Blue 2"
-    nec:
-      address: "0xEF00"
-      command: "0xF50A"
+    name: "RF Speed Up"
+    rc_switch_raw:
+      code: "100110001101111100001111"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Flash"
-    nec:
-      address: "0xEF00"
-      command: "0xF40B"
+    name: "RF Speed Down"
+    rc_switch_raw:
+      code: "100110001101111100001101"
+      protocol: 1
   - platform: remote_receiver
-    name: "RGB Red 3"
-    nec:
-      address: "0xEF00"
-      command: "0xF30C"
-  - platform: remote_receiver
-    name: "RGB Green 3"
-    nec:
-      address: "0xEF00"
-      command: "0xF20D"
-  - platform: remote_receiver
-    name: "RGB Blue 3"
-    nec:
-      address: "0xEF00"
-      command: "0xF10E"
-  - platform: remote_receiver
-    name: "RGB Strobe"
-    nec:
-      address: "0xEF00"
-      command: "0xF00F"
-  - platform: remote_receiver
-    name: "RGB Red 4"
-    nec:
-      address: "0xEF00"
-      command: "0xEF10"
-  - platform: remote_receiver
-    name: "RGB Green 4"
-    nec:
-      address: "0xEF00"
-      command: "0xEE11"
-  - platform: remote_receiver
-    name: "RGB Blue 4"
-    nec:
-      address: "0xEF00"
-      command: "0xED12"
-  - platform: remote_receiver
-    name: "RGB Fade"
-    nec:
-      address: "0xEF00"
-      command: "0xEC13"
-  - platform: remote_receiver
-    name: "RGB Red 5"
-    nec:
-      address: "0xEF00"
-      command: "0xEB14"
-  - platform: remote_receiver
-    name: "RGB Green 5"
-    nec:
-      address: "0xEF00"
-      command: "0xEA15"
-  - platform: remote_receiver
-    name: "RGB Blue 5"
-    nec:
-      address: "0xEF00"
-      command: "0xE916"
-  - platform: remote_receiver
-    name: "RGB Smooth"
-    nec:
-      address: "0xEF00"
-      command: "0xE817"
+    name: "RF Speed Both"
+    rc_switch_raw:
+      code: "100110001101111100111111"
+      protocol: 1
