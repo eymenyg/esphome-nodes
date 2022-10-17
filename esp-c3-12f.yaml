@@ -42,6 +42,8 @@ preferences:
 button:
   - platform: restart
     name: "ESP-C3-12F Restart"
+  - platform: shutdown
+    name: "ESP-C3-12F Shutdown"
 
 output:
   - platform: ledc
