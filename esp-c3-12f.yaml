@@ -123,84 +123,84 @@ binary_sensor:
                entity_id: input_boolean.light_switch_hold_long
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Power"
     rc_switch_raw:
       code: "100110001101111100000001"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Light"
     rc_switch_raw:
       code: "100110001101111100000100"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Brightness Up"
     rc_switch_raw:
       code: "100110001101111100000101"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Brightness Down"
     rc_switch_raw:
       code: "100110001101111100000110"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF 100%"
     rc_switch_raw:
       code: "100110001101111100000111"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF 50%"
     rc_switch_raw:
       code: "100110001101111100001000"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF 25%"
     rc_switch_raw:
       code: "100110001101111100001001"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Mode Up"
     rc_switch_raw:
       code: "100110001101111100001011"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Mode Down"
     rc_switch_raw:
       code: "100110001101111100010001"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Speed Up"
     rc_switch_raw:
       code: "100110001101111100001111"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Speed Down"
     rc_switch_raw:
       code: "100110001101111100001101"
       protocol: 1
   - platform: remote_receiver
     filters:
-      - delayed_off: 1s
+      - delayed_off: 500ms
     name: "RF Speed Both"
     rc_switch_raw:
       code: "100110001101111100111111"
