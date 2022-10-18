@@ -152,13 +152,6 @@ binary_sensor:
   - platform: remote_receiver
     filters:
       - delayed_off: 1s
-    name: "RF Power"
-    rc_switch_raw:
-      code: "100110001101111100000001"
-      protocol: 1
-  - platform: remote_receiver
-    filters:
-      - delayed_off: 1s
     name: "RF 100%"
     rc_switch_raw:
       code: "100110001101111100000111"
