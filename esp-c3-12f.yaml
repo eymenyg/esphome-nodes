@@ -107,20 +107,12 @@ binary_sensor:
              data:
                entity_id: input_boolean.light_switch_click
       - timing: # Hold
-          - ON for 0.25s to 0.6s
-          - OFF for at least 0.05s
+          - ON for at least 0.3s
         then:
          - homeassistant.service:
              service: input_boolean.toggle
              data:
                entity_id: input_boolean.light_switch_hold
-      - timing: # Hold Long
-          - ON for at least 0.6s
-        then:
-         - homeassistant.service:
-             service: input_boolean.toggle
-             data:
-               entity_id: input_boolean.light_switch_hold_long
   - platform: remote_receiver
     filters:
       - delayed_off: 500ms
