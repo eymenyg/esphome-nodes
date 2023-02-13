@@ -50,25 +50,23 @@ button:
 
 output:
   - platform: ledc
-    pin: GPIO3
-    id: red_output
-  - platform: ledc
     pin: GPIO4
-    id: green_output
+    id: cold_white_output
   - platform: ledc
     pin: GPIO5
-    id: blue_output
+    id: warm_white_output
   - platform: ledc
     pin: GPIO18
     id: hall_night_light
 
 
 light:
-  - platform: rgb
-    name: "RGB Lights"
-    red: red_output
-    green: green_output
-    blue: blue_output
+  - platform: cwww
+    name: "Mood Lights"
+    cold_white: cold_white_output
+    warm_white: warm_white_output
+    cold_white_color_temperature: 6500K
+    warm_white_color_temperature: 3000K
     effects:
       - pulse:
       - random:
