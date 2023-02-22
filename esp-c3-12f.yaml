@@ -84,7 +84,7 @@ external_components:
 
 remote_receiver:
   pin:
-    number: GPIO6
+    number: GPIO10
   tolerance: 50%
   filter: 250us
   idle: 4ms
@@ -93,7 +93,7 @@ remote_receiver:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO10
+      number: GPIO6
       mode: INPUT_PULLUP
       inverted: true
     filters:
