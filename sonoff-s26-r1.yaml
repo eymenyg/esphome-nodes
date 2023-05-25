@@ -56,6 +56,6 @@ output:
       inverted: true
 
 light:
-  - platform: status_led
+  - platform: monochromatic
     name: "Sonoff S26 R1 Green LED"
     output: green_led
