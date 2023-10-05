@@ -9,10 +9,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret api_password
+  password: !secret api_key
 
 ota:
-  password: !secret api_password
+  password: !secret api_key
 
 wifi:
   ssid: !secret wifi_ssid
