@@ -27,6 +27,19 @@ wifi:
 switch:
   - platform: gpio
     pin: 0
+    id: relay
     name: "Closet Fan"
     inverted: true
     restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+    - script.execute: run_for_15_min
+    on_turn_off:
+    - script.stop: run_for_15_min
+
+script:
+  - id: run_for_15_min
+    then:
+      - delay: 900s
+      - switch.turn_off: relay
+
+
