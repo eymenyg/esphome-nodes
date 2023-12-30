@@ -32,14 +32,14 @@ switch:
     inverted: true
     restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
-    - script.execute: run_for_15_min
+    - script.execute: run_for_10_min
     on_turn_off:
-    - script.stop: run_for_15_min
+    - script.stop: run_for_10_min
 
 script:
-  - id: run_for_15_min
+  - id: run_for_10_min
     then:
-      - delay: 900s
+      - delay: 600s
       - switch.turn_off: relay
 
 
