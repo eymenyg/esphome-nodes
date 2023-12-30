@@ -29,4 +29,4 @@ switch:
     pin: 0
     name: "Closet Fan"
     inverted: true
-    restore_mode: ALWAYS_ON
+    restore_mode: RESTORE_DEFAULT_OFF
