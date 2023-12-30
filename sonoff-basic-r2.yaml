@@ -27,6 +27,8 @@ wifi:
 button:
   - platform: restart
     name: "Sonoff Basic R2 Restart"
+  - platform: shutdown
+    name: "Sonoff Basic R2 Shutdown"
 
 binary_sensor:
   - platform: gpio

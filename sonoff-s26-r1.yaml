@@ -28,6 +28,8 @@ wifi:
 button:
   - platform: restart
     name: "Sonoff S26 R1 Restart"
+  - platform: shutdown
+    name: "Sonoff S26 R1 Shutdown"
 
 binary_sensor:
   - platform: gpio
