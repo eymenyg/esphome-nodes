@@ -88,30 +88,30 @@ remote_receiver:
   buffer_size: 4kb
 
 binary_sensor:
-  - platform: gpio
-    pin:
-      number: GPIO6
-      mode: INPUT_PULLUP
-      inverted: true
-    filters:
-      - delayed_on_off: 40ms
-    name: "Light Switch Left"
-    on_multi_click:
-      - timing: # Click
-          - ON for at most 0.25s
-          - OFF for at least 0.05s
-        then:
-         - homeassistant.service:
-             service: input_boolean.toggle
-             data:
-               entity_id: input_boolean.light_switch_left_click
-      - timing: # Hold
-          - ON for at least 0.3s
-        then:
-         - homeassistant.service:
-             service: input_boolean.toggle
-             data:
-               entity_id: input_boolean.light_switch_left_hold
+  # - platform: gpio
+  #   pin:
+  #     number: GPIO6
+  #     mode: INPUT_PULLUP
+  #     inverted: true
+  #   filters:
+  #     - delayed_on_off: 40ms
+  #   name: "Light Switch Left"
+  #   on_multi_click:
+  #     - timing: # Click
+  #         - ON for at most 0.25s
+  #         - OFF for at least 0.05s
+  #       then:
+  #        - homeassistant.service:
+  #            service: input_boolean.toggle
+  #            data:
+  #              entity_id: input_boolean.light_switch_left_click
+  #     - timing: # Hold
+  #         - ON for at least 0.3s
+  #       then:
+  #        - homeassistant.service:
+  #            service: input_boolean.toggle
+  #            data:
+  #              entity_id: input_boolean.light_switch_left_hold
   - platform: gpio
     pin:
       number: GPIO7
@@ -119,7 +119,7 @@ binary_sensor:
       inverted: true
     filters:
       - delayed_on_off: 40ms
-    name: "Light Switch Right"
+    name: "Light Switch"
     on_multi_click:
       - timing: # Click
           - ON for at most 0.25s
@@ -128,14 +128,14 @@ binary_sensor:
          - homeassistant.service:
              service: input_boolean.toggle
              data:
-               entity_id: input_boolean.light_switch_right_click
+               entity_id: input_boolean.light_switch_press
       - timing: # Hold
           - ON for at least 0.3s
         then:
          - homeassistant.service:
              service: input_boolean.toggle
              data:
-               entity_id: input_boolean.light_switch_right_hold
+               entity_id: input_boolean.light_switch_hold
   - platform: remote_receiver
     filters:
       - delayed_off: 500ms
