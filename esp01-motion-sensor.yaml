@@ -1,0 +1,39 @@
+esphome:
+  name: esp01-motion-sensor
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  password: !secret api_key
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: on
+  manual_ip:
+    static_ip: 192.168.1.55
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+
+button:
+  - platform: restart
+    name: "ESP-01 Motion Sensor Restart"
+  - platform: shutdown
+    name: "ESP-01 Motion Sensor Shutdown"
+
+binary_sensor:
+  - platform: gpio
+    pin: 0
+    name: "Motion Sensor"
+    device_class: motion
+
+
