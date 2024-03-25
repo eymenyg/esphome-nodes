@@ -30,12 +30,16 @@ button:
   - platform: shutdown
     name: "ESP-01 Closet Fan Shutdown"
 
-switch:
-  - platform: gpio
+output:
+  - id: relay
+    platform: gpio
     pin: 0
-    id: relay
-    name: "Closet Fan"
     inverted: true
+
+fan:
+  - platform: binary
+    output: relay
+    name: "Closet Fan"
     restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
     - script.execute: run_for_10_min
@@ -46,6 +50,6 @@ script:
   - id: run_for_10_min
     then:
       - delay: 600s
-      - switch.turn_off: relay
+      - output.turn_off: relay
 
 
