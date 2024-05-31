@@ -75,10 +75,6 @@ light:
     output: hall_night_light
     restore_mode: RESTORE_DEFAULT_OFF
 
-external_components:
-  - source: github://Jorre05/remote_receiver
-    components: [ remote_receiver ]
-
 remote_receiver:
   pin:
     number: GPIO10
@@ -86,6 +82,7 @@ remote_receiver:
   filter: 250us
   idle: 5ms
   buffer_size: 4kb
+  rmt_channel: 2
 
 binary_sensor:
   # - platform: gpio
